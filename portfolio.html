@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — Obsylux Customs</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="obsidian">
+  <div class="topbar">
+    <div class="nav">
+      <div class="brand">
+        <div class="name">Obsylux Customs</div>
+        <div class="tag">Bringing Your Imagination to Life.</div>
+      </div>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a class="active" href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="hero">
+      <span class="kicker">Portfolio</span>
+      <h1>Browse by category</h1>
+      <p>
+        Add your real photos later — for now these are placeholders.
+        The filter works already (Categories + All).
+      </p>
+
+      <div class="filters" id="filters">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="apparel">Apparel</button>
+        <button data-filter="decals">Decals</button>
+        <button data-filter="drinkware">Drinkware</button>
+        <button data-filter="paper">Invites & Cards</button>
+        <button data-filter="decor">Decor</button>
+      </div>
+
+      <div class="btnrow">
+        <a class="btn primary" href="contact.html">Request a Quote</a>
+        <a class="btn" href="https://instagram.com/ObsyluxCustoms" target="_blank" rel="noreferrer">DM on Instagram</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Featured work</h2>
+      <p>Swap these tiles with your actual portfolio images later.</p>
+      <div class="gallery" id="gallery">
+        <div class="tile" data-cat="apparel">
+          <h3>Custom Hoodie</h3>
+          <p>Clean front logo + back design.</p>
+          <span class="tagchip">Apparel</span>
+        </div>
+
+        <div class="tile" data-cat="decals">
+          <h3>Car Window Decal</h3>
+          <p>Bold text, weather-ready vinyl.</p>
+          <span class="tagchip">Decals</span>
+        </div>
+
+        <div class="tile" data-cat="drinkware">
+          <h3>Personalized Mug Set</h3>
+          <p>Names + gold theme.</p>
+          <span class="tagchip">Drinkware</span>
+        </div>
+
+        <div class="tile" data-cat="paper">
+          <h3>Wedding Invite Suite</h3>
+          <p>Invite + card matching set.</p>
+          <span class="tagchip">Invites & Cards</span>
+        </div>
+
+        <div class="tile" data-cat="decor">
+          <h3>Event Welcome Sign</h3>
+          <p>Large signage + matching prints.</p>
+          <span class="tagchip">Decor</span>
+        </div>
+
+        <div class="tile" data-cat="apparel">
+          <h3>Bulk T-Shirts</h3>
+          <p>Team/school/business bulk order.</p>
+          <span class="tagchip">Apparel</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div>© <b>Obsylux Customs</b> • DM to order • @ObsyluxCustoms</div>
+      <div>Phone: <b>431-688-7786</b></div>
+    </div>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll("#filters button");
+    const tiles = document.querySelectorAll("#gallery .tile");
+
+    function setFilter(filter){
+      tiles.forEach(t => {
+        const cat = t.getAttribute("data-cat");
+        const show = (filter === "all" || filter === cat);
+        t.style.display = show ? "block" : "none";
+      });
+      buttons.forEach(b => b.classList.toggle("active", b.dataset.filter === filter));
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => setFilter(btn.dataset.filter));
+    });
+  </script>
+</body>
+</html>

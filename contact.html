@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Obsylux Customs</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="obsidian">
+  <div class="topbar">
+    <div class="nav">
+      <div class="brand">
+        <div class="name">Obsylux Customs</div>
+        <div class="tag">Bringing Your Imagination to Life.</div>
+      </div>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a class="active" href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="hero">
+      <span class="kicker">Contact</span>
+      <h1>Start your order</h1>
+      <p>
+        Best way: DM us on Instagram. You can also text/call or use the inquiry form below.
+      </p>
+
+      <div class="badges">
+        <div class="badge">Instagram: <b>@ObsyluxCustoms</b></div>
+        <div class="badge">Call/Text: <b>431-688-7786</b></div>
+        <div class="badge">DM to order: <b>Everywhere</b></div>
+      </div>
+
+      <div class="btnrow">
+        <a class="btn primary" href="https://instagram.com/ObsyluxCustoms" target="_blank" rel="noreferrer">DM on Instagram</a>
+        <a class="btn" href="tel:+14316887786">Call</a>
+        <a class="btn gold" href="sms:+14316887786">Text</a>
+      </div>
+      <div class="hr"></div>
+      <small>For questions, DM us on Instagram: @ObsyluxCustoms</small>
+    </section>
+
+    <section class="card">
+      <h2>Inquiry form (no checkout)</h2>
+      <p>Fill this out, then hit “Create Email” — it opens your email app with the message ready.</p>
+
+      <form class="form" id="quoteForm">
+        <input id="name" placeholder="Your name" required />
+        <input id="phone" placeholder="Phone number" />
+        <input id="ig" placeholder="Instagram @ (optional)" />
+        <input id="service" placeholder="What do you want? (hoodie, mug, decals, invite, decor...)" required />
+        <textarea id="details" placeholder="Details: theme/colors, name/date/text, quantity, deadline, pickup/delivery"></textarea>
+
+        <button class="btn primary" type="submit">Create Email</button>
+        <small>
+          Tip: add photos/screenshots when you message us (Insta DM is fastest).
+        </small>
+      </form>
+    </section>
+
+    <div class="footer">
+      <div>© <b>Obsylux Customs</b> • Bringing Your Imagination to Life.</div>
+      <div>Phone: <b>431-688-7786</b> • Instagram: <b>@ObsyluxCustoms</b></div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("quoteForm");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const ig = document.getElementById("ig").value.trim();
+      const service = document.getElementById("service").value.trim();
+      const details = document.getElementById("details").value.trim();
+
+      const subject = encodeURIComponent(`Obsylux Quote Request — ${service}`);
+      const body = encodeURIComponent(
+`Name: ${name}
+Phone: ${phone}
+Instagram: ${ig}
+
+Request: ${service}
+
+Details:
+${details}
+
+Preferred contact: (DM / Text / Email)
+Deadline date:
+Quantity:
+Pickup or Delivery:`);
+
+      // Replace this email with yours when you’re ready:
+      const to = "obsyluxcustoms@gmail.com";
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
